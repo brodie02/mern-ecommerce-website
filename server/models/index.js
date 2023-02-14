@@ -1,3 +1,7 @@
 import User from "./User";
+import Product from "./Product";
 
-export default User
+export default {
+  User, 
+  Product
+}
