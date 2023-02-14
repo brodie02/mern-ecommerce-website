@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 
+import Order from './Order'
+
 const { Schema } = mongoose
 
 const userSchema = new Schema({
@@ -21,12 +23,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 6
   },
-  orders: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Order'
-    }
-  ]
+  orders: [Order.schema]
 })
 
 userSchema.pre('save', async function(next) {
