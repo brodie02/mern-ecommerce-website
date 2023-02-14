@@ -3,7 +3,7 @@ import Product from "./Product";
 import Category from "./Category";
 import Order from "./Order";
 
-export default {
+export {
   User, 
   Product,
   Category,
