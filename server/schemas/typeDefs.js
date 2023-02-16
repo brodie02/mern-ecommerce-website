@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-express'
+const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
   type Category {
@@ -50,3 +50,5 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
   }
 `
+
+module.exports = typeDefs

@@ -1,6 +1,4 @@
-import { connect, connection, mongoose } from 'mongoose'
-
-mongoose.set('strictQuery', false);
+const { connect, connection } = require('mongoose')
 
 const connectionString =
   process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mern-ecommerce';
@@ -10,4 +8,4 @@ connect(connectionString, {
   useUnifiedTopology: true,
 });
 
-export default connection
+module.exports = connection

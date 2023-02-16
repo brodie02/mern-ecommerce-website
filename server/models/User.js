@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
-import Order from './Order'
+const Order = require('./Order')
 
 const { Schema } = mongoose
 
@@ -41,4 +41,4 @@ userSchema.methods.isCorrectPassword = async function(password) {
 
 const User = mongoose.model('User', userSchema)
 
-export default User
+module.exports = User

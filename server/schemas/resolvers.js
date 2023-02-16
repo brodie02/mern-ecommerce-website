@@ -1,6 +1,6 @@
-import { AuthenticationError } from 'apollo-server-express'
-import { User, Product, Category, Order } from '../models/index'
-import { signToken } from '../utils/auth'
+const { AuthenticationError } = require('apollo-server-express')
+const { User, Product, Category, Order } = require('../models/index')
+const { signToken } = require('../utils/auth')
 
 const resolvers = {
   Query: {
@@ -102,4 +102,4 @@ const resolvers = {
   }
 }
 
-export default resolvers
+module.exports = resolvers
