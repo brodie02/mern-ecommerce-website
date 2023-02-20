@@ -3,15 +3,13 @@ import { useQuery } from '@apollo/client'
 import { QUERY_CATEGORIES } from '../../utils/queries'
 import './style.css'
 
-export default function Category() {
+export default function CategoryList() {
   const [currentCategory, setCurrentCategory] = useState()
 
+  // loading animation
   const { loading, data } = useQuery(QUERY_CATEGORIES)
 
   const categories = data?.categories || []
-  
-  console.log(data);
-  console.log(categories);
 
   const handleClick = (name) => {
     setCurrentCategory(name)

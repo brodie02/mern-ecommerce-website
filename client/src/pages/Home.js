@@ -1,11 +1,10 @@
 import React from 'react'
-
-import Category from '../components/Category'
+import CategoryList from '../components/CategoryList'
 
 export default function Home() {
   return (
     <div>
-      <Category />
+      <CategoryList />
     </div>
   )
 }
