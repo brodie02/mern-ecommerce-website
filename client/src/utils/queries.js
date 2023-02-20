@@ -9,7 +9,7 @@ export const QUERY_PRODUCTS = gql`
       price
       stock
       image
-      category {
+      categories {
         _id
       }
     }
@@ -24,7 +24,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       description
       price
       stock
-      category {
+      categories {
         name
       }
     }
