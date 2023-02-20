@@ -135,6 +135,11 @@ const resolvers = {
       const token = signToken(user)
 
       return { token, user }
+    },
+    addCategory: async (parent, args) => {
+      const category = await Category.create(args)
+
+      return category
     }
   }
 }
