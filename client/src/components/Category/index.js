@@ -21,17 +21,21 @@ export default function Category() {
     <div id='categories'>
       <h2>Categories</h2>
       <div id='category-buttons'>
-        {categories.map((item) => (
-          <button
-            className='button'
-            key={item._id}
-            onClick={() => {
-              handleClick(item.name)
-            }}
-          >
-            {item.name}
-          </button>
-        ))}
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          categories.map((item) => (
+            <button
+              className='button'
+              key={item._id}
+              onClick={() => {
+                handleClick(item.name)
+              }}
+            >
+              {item.name}
+            </button>
+          ))
+        )}
       </div>
     </div>
   )
