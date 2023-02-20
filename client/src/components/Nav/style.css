@@ -7,6 +7,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  background-color: rgb(235, 182, 84);
 }
 
 #header-body {
