@@ -11,7 +11,7 @@ const typeDefs = gql`
     name: String
     description: String
     image: String
-    quantity: Int
+    stock: Int
     price: Float
     categories: [Category]
   }
