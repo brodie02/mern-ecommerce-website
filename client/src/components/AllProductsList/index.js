@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client'
 import { QUERY_ALL_PRODUCTS } from '../../utils/queries'
+import './style.css'
 
 import Product from '../Product'
 
@@ -10,9 +11,9 @@ export default function AllProductList() {
   const products = data?.products || []
 
   return (
-    <div>
+    <div id='all-product-list'>
       <h2>Products</h2>
-      <div>
+      <div id='all-product-list-products'>
         {loading ? (
           <div>Loading...</div>
         ) : (
