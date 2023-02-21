@@ -22,9 +22,7 @@ export default function AllProductList() {
               _id={item._id}
               image={item.image}
               name={item.name}
-              description={item.description}
-              quantity={item.quantity}
-              categories={item.categories}
+              price={item.price}
             />
           ))
         )}

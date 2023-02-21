@@ -10,12 +10,6 @@ export default function ProductList({currentCategory}) {
 
   const products = data?.products || []
 
-  function filterProducts() {
-    if (!currentCategory) {
-      return
-    }
-  }
-
   return (
     <div>
       <h2>Products</h2>

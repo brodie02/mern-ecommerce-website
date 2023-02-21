@@ -1,0 +1,26 @@
+img {
+  width: 350px;
+}
+
+#product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fa6400;
+  color: white;
+  width: 350px;
+  padding: 20px;
+}
+
+#product a {
+  color: white;
+}
+
+#product p {
+  font-size: 20px;
+}
+
+#product-price {
+  align-self: flex-start;
+}
