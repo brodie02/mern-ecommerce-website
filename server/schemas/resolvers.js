@@ -8,11 +8,11 @@ const resolvers = {
     categories: async () => {
       return await Category.find()
     },
-    products: async (parent, { category, name }) => {
+    products: async (parent, { categories, name }) => {
       const params = {}
 
-      if (category) {
-        params.category = category
+      if (categories) {
+        params.categories = categories
       }
 
       if (name) {

@@ -21,7 +21,7 @@ export default function CategoryList({setCurrentCategory}) {
               className='button'
               key={item._id}
               onClick={() => {
-                setCurrentCategory(item.name)
+                setCurrentCategory(item._id)
               }}
             >
               {item.name}
