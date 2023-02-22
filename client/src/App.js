@@ -4,11 +4,10 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  // createHttpLink,
 } from '@apollo/client';
-// import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home'
+import ProductPage from './pages/ProductPage'
 import Nav from './components/Nav';
 
 const client = new ApolloClient({
@@ -26,6 +25,10 @@ function App() {
             <Route 
               path="/"
               element={<Home />}
+            />
+            <Route 
+              path="/products/:id"
+              element={<ProductPage />}
             />
           </Routes>
         </div>
