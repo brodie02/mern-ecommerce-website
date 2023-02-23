@@ -6,9 +6,12 @@ import {
   ApolloProvider,
 } from '@apollo/client';
 
+import Nav from './components/Nav';
 import Home from './pages/Home'
 import ProductPage from './pages/ProductPage'
-import Nav from './components/Nav';
+import Signup from './pages/Signup'
+
+
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -29,6 +32,10 @@ function App() {
             <Route 
               path="/products/:id"
               element={<ProductPage />}
+            />
+            <Route 
+              path="/signup"
+              element={<Signup />}
             />
           </Routes>
         </div>

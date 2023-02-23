@@ -7,14 +7,17 @@ export default function Nav() {
 
   function showNav() {
     if (Auth.loggedIn()) {
-      <nav>
+      return (
+        <nav>
           <Link to="/orderHistory">
             Order History
           </Link>
           <a href="/" onClick={() => Auth.logout()}>
             Logout
           </a>
-      </nav>
+        </nav>
+      )
+      
     } else {
       return (
         <nav>
