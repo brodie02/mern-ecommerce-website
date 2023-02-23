@@ -25,10 +25,10 @@ function App() {
   const addItemToCart = (item) => {
     setCart((prev) => {
       const isItemInCart = prev.find((i) => i._id === item._id)
-
+      
       if (isItemInCart) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, amount: i.amount + 1 } : i
+        return [...prev].map((i) =>
+          i._id === item._id ? { ...i, amount: i.amount + 1 } : i
         )
       }
 
