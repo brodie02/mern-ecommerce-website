@@ -1,20 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './style.css'
 
 import { useMutation } from '@apollo/client'
-import { ADD_USER } from '../../utils/mutations'
+import { LOGIN } from '../../utils/mutations'
 
 import Auth from '../../utils/auth'
 
-export default function SignupForm() {
+export default function LoginForm() {
   const [formState, setFormState] = useState({
-    name: '',
     email: '',
     password: '',
   });
 
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,11 +28,11 @@ export default function SignupForm() {
     console.log(formState);
 
     try {
-      const { data } = await addUser({
+      const { data } = await login({
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -43,16 +41,14 @@ export default function SignupForm() {
   return (
     <section className="form">
       <div>
-          <h3>Sign Up</h3>
+          <h3>Login</h3>
       </div>
       <form onSubmit={handleFormSubmit}>
-          <label>Name:</label>
-          <input type="text" name="name" value={formState.name} onChange={handleChange}/>
           <label>Email:</label>
           <input type="text" name="email" value={formState.email} onChange={handleChange}/>
           <label>Password:</label>
           <input type="password" name="password" value={formState.password} onChange={handleChange}/><br/>
-          <button className='button' type='submit'>Sign Up</button>
+          <button className='button' type='submit'>Login</button>
       </form> 
     </section>
   )

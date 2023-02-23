@@ -17,15 +17,11 @@ export default function Nav() {
           </a>
         </nav>
       )
-      
     } else {
       return (
         <nav>
           <Link to="/signup">
-            Sign Up
-          </Link>
-          <Link to="/login">
-            Login
+            Sign Up/Login
           </Link>
         </nav>
       )
