@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { QUERY_PRODUCT } from '../utils/queries'
 import './css/ProductPage.css'
 
-export default function ProductPage() {
+export default function ProductPage({addItemToCart}) {
   const { id } = useParams()
 
   const { loading, data } = useQuery(QUERY_PRODUCT, {
@@ -28,7 +28,7 @@ export default function ProductPage() {
             <h2>{product.name}</h2>
             <p><strong>AU${product.price}</strong></p>
             <p>{product.stock} items in stock</p>
-            <button className='button'>Add to Cart</button>
+            <button className='button' onClick={() => {addItemToCart(product)}}>Add to Cart</button>
           </div>
         </div>
         )}

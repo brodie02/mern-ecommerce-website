@@ -5,7 +5,7 @@ import ProductList from '../components/ProductList'
 import AllProductsList from '../components/AllProductsList'
 
 
-export default function Home() {
+export default function Home({addItemToCart}) {
   const [currentCategory, setCurrentCategory] = useState()
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Home() {
     <div>
       <CategoryList setCurrentCategory={setCurrentCategory} />
       {!currentCategory ? (
-        <AllProductsList />
+        <AllProductsList addItemToCart={addItemToCart}/>
       ) : (
         <ProductList currentCategory={currentCategory} />
       )}

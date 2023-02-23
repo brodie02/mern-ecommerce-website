@@ -5,7 +5,7 @@ import './style.css'
 
 import Product from '../Product'
 
-export default function AllProductList() {
+export default function AllProductList({addItemToCart}) {
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS)
 
   const products = data?.products || []
@@ -20,10 +20,8 @@ export default function AllProductList() {
           products.map((item) => (
             <Product 
               key={item._id}
-              _id={item._id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
+              item={item}
+              addItemToCart={addItemToCart}
             />
           ))
         )}

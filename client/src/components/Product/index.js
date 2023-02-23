@@ -2,7 +2,14 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import './style.css'
 
-export default function Product({_id, image, name, price}) {
+export default function Product({ item, addItemToCart }) {
+  const {
+    _id,
+    image,
+    name,
+    price
+  } = item
+
   return (
     <div id='product'>
       <Link to={`/products/${_id}`}>
@@ -11,6 +18,7 @@ export default function Product({_id, image, name, price}) {
       </Link>
       <div id='product-price'>
         <p>AU${price}</p>
+        <button onClick={() => addItemToCart(item)}>Add to Cart</button>
       </div>
     </div>
   )

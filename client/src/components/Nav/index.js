@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Auth from '../../utils/auth'
 import { Link } from "react-router-dom"
 import './style.css'
+
+import Cart from '../Cart'
 
 export default function Nav() {
 
@@ -28,6 +30,25 @@ export default function Nav() {
     }
   }
 
+  const [cartOpen, setCartOpen] = useState(false)
+
+  function checkCart() {
+    if(!cartOpen) {
+      setCartOpen(true)
+      return
+    } else {
+      setCartOpen(false)
+      return
+    }
+  }
+
+  function showCart() {
+    if(cartOpen) {
+      return <Cart />
+    }
+    return
+  }
+
   return (
     <header>
       <h1>
@@ -39,8 +60,9 @@ export default function Nav() {
       <div id='header-body'>
         {showNav()}
         <div>
-          <p>Cart</p>
+          <p onClick={() => checkCart()}>Cart</p>
         </div>
+        {showCart()}
       </div>
     </header>
   )

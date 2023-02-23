@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -19,6 +19,23 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [cart, setCart] = useState([])
+  console.log(cart);
+
+  const addItemToCart = (item) => {
+    setCart((prev) => {
+      const isItemInCart = prev.find((i) => i._id === item._id)
+
+      if (isItemInCart) {
+        return prev.map((i) =>
+          i.id === item.id ? { ...i, amount: i.amount + 1 } : i
+        )
+      }
+
+      return [...prev, { ...item, amount: 1 }]
+    })
+  }
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -27,11 +44,11 @@ function App() {
           <Routes>
             <Route 
               path="/"
-              element={<Home />}
+              element={<Home addItemToCart={addItemToCart}/>}
             />
             <Route 
               path="/products/:id"
-              element={<ProductPage />}
+              element={<ProductPage addItemToCart={addItemToCart}/>}
             />
             <Route 
               path="/signup"
