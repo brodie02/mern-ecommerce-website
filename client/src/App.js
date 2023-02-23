@@ -36,11 +36,23 @@ function App() {
     })
   }
 
+  const removeItemFromCart = (_id) => {
+    setCart((prev) => {
+      const foundItem = prev.find((i) => i._id === _id);
+      if (foundItem) {
+        const newArray = prev.filter((i) => i._id !== _id);
+        return newArray;
+      } else {
+        return prev;
+      }
+    });
+  };
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav />
+          <Nav cart={cart} removeItemFromCart={removeItemFromCart}/>
           <Routes>
             <Route 
               path="/"

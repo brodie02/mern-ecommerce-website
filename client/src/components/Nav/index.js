@@ -5,7 +5,7 @@ import './style.css'
 
 import Cart from '../Cart'
 
-export default function Nav() {
+export default function Nav({cart, removeItemFromCart}) {
 
   function showNav() {
     if (Auth.loggedIn()) {
@@ -44,7 +44,7 @@ export default function Nav() {
 
   function showCart() {
     if(cartOpen) {
-      return <Cart />
+      return <Cart cart={cart} setCartOpen={setCartOpen} removeItemFromCart={removeItemFromCart}/>
     }
     return
   }
