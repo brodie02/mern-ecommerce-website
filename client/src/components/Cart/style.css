@@ -5,4 +5,34 @@
   background-color: white;
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
+  width: 23%;
+}
+
+#cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 5px;
+  padding: 5px;
+  border-bottom: 2px orange solid;
+}
+
+#cart-header p {
+  align-self: flex-start;
+}
+
+#cart-item {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart-item img {
+  width: 90px;
+  margin-right: 12px;
+}
+
+#cart-item-body-bottom {
+  display: flex;
 }
