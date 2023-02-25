@@ -1,8 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CHECKOUT } from '../../utils/queries';
+import Auth from '../../utils/auth';
 import './style.css'
 
-export default function Cart({cart, setCartOpen, removeItemFromCart}) {
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx')
 
+export default function Cart({cart, setCartOpen, removeItemFromCart}) {
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
+  function calculateTotal() {
+    let sum = 0
+    cart.forEach((item) => {
+      sum += item.price * item.amount
+    });
+    return sum.toFixed(2)
+  }
+
+  function submitCheckout() {
+    const productIds = [];
+
+    cart.forEach((item) => {
+      for (let i = 0; i < item.amount; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
 
   return (
     <div id='cart'>
@@ -18,13 +54,21 @@ export default function Cart({cart, setCartOpen, removeItemFromCart}) {
               <p>{item.name}, AU${item.price}</p>
               <div id='cart-item-body-bottom'>
                 <p>Qty:</p>
-                <input placeholder={item.amount} value={item.amount}/>
+                <input placeholder={item.amount}/>
                 <span onClick={() => removeItemFromCart(item._id)}>🗑️</span>
               </div>
             </div>
           </div>
         )
       })}
+      <div>
+        <strong>Total: ${calculateTotal()}</strong>
+        {Auth.loggedIn() ? (
+          <button onClick={() => submitCheckout} className='button'>Checkout</button>
+        ) : (
+          <span>please log in to checkout</span>
+        )}
+      </div>
     </div>
   )
 }
