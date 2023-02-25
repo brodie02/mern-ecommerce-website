@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { QUERY_PRODUCTS } from '../../utils/queries'
 import './style.css'
 
-export default function ProductList({currentCategory}) {
+export default function ProductList({currentCategory, addItemToCart}) {
   const { loading, data } = useQuery(QUERY_PRODUCTS, {
     variables: { categories: currentCategory },
   });
@@ -21,10 +21,8 @@ export default function ProductList({currentCategory}) {
           products.map((item) => (
             <Product 
               key={item._id}
-              _id={item._id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
+              item={item}
+              addItemToCart={addItemToCart}
             />
           ))
         )}

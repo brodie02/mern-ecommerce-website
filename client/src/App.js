@@ -20,7 +20,6 @@ const client = new ApolloClient({
 
 function App() {
   const [cart, setCart] = useState([])
-  console.log(cart);
 
   const addItemToCart = (item) => {
     setCart((prev) => {

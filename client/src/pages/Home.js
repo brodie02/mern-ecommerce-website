@@ -18,7 +18,7 @@ export default function Home({addItemToCart}) {
       {!currentCategory ? (
         <AllProductsList addItemToCart={addItemToCart}/>
       ) : (
-        <ProductList currentCategory={currentCategory} />
+        <ProductList currentCategory={currentCategory} addItemToCart={addItemToCart} />
       )}
     </div>
   )
