@@ -64,7 +64,7 @@ export default function Cart({cart, setCartOpen, removeItemFromCart}) {
       <div>
         <strong>Total: ${calculateTotal()}</strong>
         {Auth.loggedIn() ? (
-          <button onClick={() => submitCheckout} className='button'>Checkout</button>
+          <button onClick={submitCheckout} className='button'>Checkout</button>
         ) : (
           <span>please log in to checkout</span>
         )}
