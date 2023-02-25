@@ -46,29 +46,36 @@ export default function Cart({cart, setCartOpen, removeItemFromCart}) {
         <h2>Cart</h2>
         <p onClick={() => setCartOpen(false)}>close</p>
       </div>
-      {cart.map((item) => {
-        return (
-          <div id='cart-item' key={item._id}>
-            <img alt={item.name} src={`/images/${item.image}`}/>
-            <div id='cart-item-body'>
-              <p>{item.name}, AU${item.price}</p>
-              <div id='cart-item-body-bottom'>
-                <p>Qty:</p>
-                <input placeholder={item.amount}/>
-                <span onClick={() => removeItemFromCart(item._id)}>🗑️</span>
+      {cart.length ? (
+        <div>
+          {cart.map((item) => {
+            return (
+              <div id='cart-item' key={item._id}>
+                <img alt={item.name} src={`/images/${item.image}`}/>
+                <div id='cart-item-body'>
+                  <p>{item.name}, AU${item.price}</p>
+                  <div id='cart-item-body-bottom'>
+                    <p>Qty:</p>
+                    <input placeholder={item.amount}/>
+                    <span onClick={() => removeItemFromCart(item._id)}>🗑️</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            )
+          })}
+          <div id='cart-footer'>
+            <strong>Total: ${calculateTotal()}</strong>
+            {Auth.loggedIn() ? (
+              <button onClick={submitCheckout} className='button'>Checkout</button>
+            ) : (
+              <span>please log in to checkout</span>
+            )}
           </div>
-        )
-      })}
-      <div>
-        <strong>Total: ${calculateTotal()}</strong>
-        {Auth.loggedIn() ? (
-          <button onClick={submitCheckout} className='button'>Checkout</button>
-        ) : (
-          <span>please log in to checkout</span>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div id='cart-error'>Cart is empty!</div>
+      )}
+      
     </div>
   )
 }

@@ -36,3 +36,18 @@
 #cart-item-body-bottom {
   display: flex;
 }
+
+#cart-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px orange solid;
+  margin: 5px;
+  padding-top: 5px;
+}
+
+#cart-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
