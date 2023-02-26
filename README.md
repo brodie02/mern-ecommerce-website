@@ -6,7 +6,7 @@ This e-commerce shop is a basic e-commerce website where the user can browse thr
 
 I've decided to make a basic e-commerce website for my final project as e-commerce websites can have a lot of features added to them. My plan for this website is to continue to work on it to add more features, clean up and improve the presentation of the website, and overall improve my skills and knowledge of web development.
 
-<!-- Deployed application link: [Workout-Tracker](https://ancient-eyrie-19788.herokuapp.com/) -->
+Deployed application link: [E-Commerce Shop](https://cryptic-reaches-14388.herokuapp.com/)
 
 ## Table of Contents
 
@@ -49,7 +49,7 @@ No installation required.
 
 ### First time user
 
-<!-- 1. Visit [Workout-Tracker](https://ancient-eyrie-19788.herokuapp.com/) -->
+1. Visit [E-Commerce Shop](https://cryptic-reaches-14388.herokuapp.com/)
 
 2. Click on signup/login to make an account
 3. Enter your name, email address and password
@@ -57,7 +57,7 @@ No installation required.
 
 ### Returning user
 
-<!-- 1. Visit [Workout-Tracker](https://ancient-eyrie-19788.herokuapp.com/) -->
+1. Visit [E-Commerce Shop](https://cryptic-reaches-14388.herokuapp.com/)
 
 2. Click on signup/login to make an account
 3. Enter your email address and password
