@@ -6,7 +6,7 @@ This e-commerce shop is a basic e-commerce website where the user can browse thr
 
 I've decided to make a basic e-commerce website for my final project as e-commerce websites can have a lot of features added to them. My plan for this website is to continue to work on it to add more features, clean up and improve the presentation of the website, and overall improve my skills and knowledge of web development.
 
-Deployed application link: [E-Commerce Swe hop](https://cryptic-reaches-14388.herokuapp.com/)
+Deployed application link: [E-Commerce Shop](https://cryptic-reaches-14388.herokuapp.com/)
 
 ## Table of Contents
 
